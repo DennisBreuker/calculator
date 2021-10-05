@@ -21,12 +21,15 @@ public class Main {
         ExpressionsLexer lexer = new ExpressionsLexer(cs);
         TokenStream tokens = new CommonTokenStream(lexer);
 
-        ExpressionsParser parser = new ExpressionsParser(tokens);
+        ExpressionsParser parser = new ExpressionsParser(tokens); // Tot hier alleen maar aanroepen
 
-        ParseTree tree = parser.expression();
-        ParseTreeWalker walker = new ParseTreeWalker();
-        ExpressionsReader reader = new ExpressionsReader();
-        walker.walk(reader,tree);
+        ParseTree tree = parser.expression(); // Ook deze krijg ik cadeau
+        ParseTreeWalker walker = new ParseTreeWalker(); // En deze
+        ExpressionsReader reader = new ExpressionsReader(); // Alleen deze maak ik zelf
+        walker.walk(reader,tree); // En deze krijg ik weer cadeau
+
+        Checker checker = new Checker(reader);
+        checker.check();
 
         System.out.println(input+" = "+new Evaluator().Eval(reader.getExpressions()));
 

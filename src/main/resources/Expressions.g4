@@ -1,6 +1,6 @@
 grammar Expressions;
 
-expression : INT | expression DIVTIMES expression | expression SUBADD expression;
+expression: INT | expression DIVTIMES expression | expression SUBADD expression;
 
 DIVTIMES: DIVIDE | TIMES ;
 SUBADD: PLUS | SUBSTRACT ;
