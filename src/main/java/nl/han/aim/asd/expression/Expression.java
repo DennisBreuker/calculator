@@ -1,4 +1,4 @@
-package nl.han.aim.asd.expressions;
+package nl.han.aim.asd.expression;
 
 /**
  * Created by Michel Koolwaaij on 10-10-18.
@@ -6,7 +6,6 @@ package nl.han.aim.asd.expressions;
 public abstract class Expression {
     protected Expression left;
     protected Expression right;
-    protected Operator operator;
 
     public Expression getLeft() {
         return left;
@@ -24,5 +23,5 @@ public abstract class Expression {
         this.right = right;
     }
 
-    public abstract float calc();
+    public abstract double evaluate();
 }

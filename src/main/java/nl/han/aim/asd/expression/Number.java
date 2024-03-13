@@ -1,4 +1,4 @@
-package nl.han.aim.asd.expressions;
+package nl.han.aim.asd.expression;
 
 /**
  * Created by Michel Koolwaaij on 10-10-18.
@@ -15,10 +15,11 @@ public class Number extends Expression {
     }
 
     public void setNumber(String string) {
-        this.number = Integer.parseInt(string);
+        setNumber(Integer.parseInt(string));
     }
 
-    public float calc() {
+    @Override
+    public double evaluate() {
         return number;
     }
 }

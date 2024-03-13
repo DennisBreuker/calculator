@@ -7,29 +7,34 @@ import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 import nl.han.aim.asd.parser.*;
+import java.util.Scanner;
 
 /**
  * Created by Michel Koolwaaij on 10-10-18.
  */
 public class Main {
-    private final static String input = "16 / 4 + 5 * 2 + 3 * 8 + 2 + 9 / 3";
-
     public static void main(String[] args){
-        CharStream cs = CharStreams.fromString(input);
-        ExpressionsLexer lexer = new ExpressionsLexer(cs);
-        TokenStream tokens = new CommonTokenStream(lexer);
+        // Read expression from user
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an expression: ");
+        String expressionString = scanner.nextLine();
 
+        // Create pipeline
+        CharStream stream = CharStreams.fromString(expressionString);
+        ExpressionsLexer lexer = new ExpressionsLexer(stream);
+        TokenStream tokens = new CommonTokenStream(lexer);
         ExpressionsParser parser = new ExpressionsParser(tokens); // Tot hier alleen maar aanroepen
 
+        // Try to match expressionString to the start rule and create parse tree
         ParseTree tree = parser.start(); // Ook deze krijg ik cadeau
+
+        // Walk through parse tree using our own listener
         ParseTreeWalker walker = new ParseTreeWalker(); // En deze
-        ExpressionsReader reader = new ExpressionsReader(); // Alleen deze maak ik zelf
-        walker.walk(reader,tree); // En deze krijg ik weer cadeau
+        ExpressionReader reader = new ExpressionReader(); // Alleen deze maak ik zelf
+        walker.walk(reader, tree); // En deze krijg ik weer cadeau
 
-        Checker checker = new Checker(reader);
-        checker.check();
-
-        System.out.println(input+" = "+new Evaluator().Eval(reader.getExpressions()));
+        System.out.println(expressionString + " = "
+                + new Evaluator().evaluate(reader.getTopExpression()));
 
     }
 }

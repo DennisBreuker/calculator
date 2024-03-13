@@ -1,14 +1,14 @@
 package nl.han.aim.asd.calculator;
 
-import nl.han.aim.asd.expressions.Expression;
+import nl.han.aim.asd.expression.Expression;
 
 /**
  * Created by Michel Koolwaaij on 11-10-18.
  */
 public class Evaluator {
 
-    public float Eval (Expression ast){
-        return ast.calc();
+    public double evaluate(Expression ast){
+        return ast.evaluate();
     }
 
 }

@@ -1,16 +1,16 @@
 grammar Expressions;
 
-start: expression;
+start: expression; // To prevent warning "no viable alternative at input '<EOF>'"
 expression:
     INT
-    | expression DIVTIMES expression
-    | expression SUBADD expression;
+    | expression (MULTIPLY | DIVIDE) expression
+    | expression (ADD | SUBTRACT) expression;
 
-DIVTIMES: DIVIDE | TIMES ;
-SUBADD: PLUS | SUBSTRACT ;
-PLUS: '+' ;
-SUBSTRACT: '-' ;
-TIMES: '*' ;
+ADD: '+' ;
+SUBTRACT: '-' ;
+MULTIPLY: '*' ;
 DIVIDE: '/';
+
 INT : [0-9]+;
+
 WS : [ \t\r\n]+ -> skip ;
