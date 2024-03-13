@@ -1,4 +1,4 @@
-package calculator;
+package nl.han.aim.asd.calculator;
 
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
@@ -6,9 +6,7 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.TokenStream;
 import org.antlr.v4.runtime.tree.ParseTree;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
-import parser.ExpressionsLexer;
-import parser.ExpressionsParser;
-import parser.ExpressionsReader;
+import nl.han.aim.asd.parser.*;
 
 /**
  * Created by Michel Koolwaaij on 10-10-18.
@@ -23,7 +21,7 @@ public class Main {
 
         ExpressionsParser parser = new ExpressionsParser(tokens); // Tot hier alleen maar aanroepen
 
-        ParseTree tree = parser.expression(); // Ook deze krijg ik cadeau
+        ParseTree tree = parser.start(); // Ook deze krijg ik cadeau
         ParseTreeWalker walker = new ParseTreeWalker(); // En deze
         ExpressionsReader reader = new ExpressionsReader(); // Alleen deze maak ik zelf
         walker.walk(reader,tree); // En deze krijg ik weer cadeau

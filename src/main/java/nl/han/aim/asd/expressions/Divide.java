@@ -1,4 +1,4 @@
-package expressions;
+package nl.han.aim.asd.expressions;
 
 /**
  * Created by Michel Koolwaaij on 12-10-18.

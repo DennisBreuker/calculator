@@ -1,7 +1,7 @@
-package parser;
+package nl.han.aim.asd.parser;
 
-import expressions.*;
-import expressions.Number;
+import nl.han.aim.asd.expressions.*;
+import nl.han.aim.asd.expressions.Number;
 
 import java.util.Stack;
 

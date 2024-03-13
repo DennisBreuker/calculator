@@ -6,9 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="MicCalculator" />
+        <module name="calculator" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="MicCalculator" target="12" />
+    </bytecodeTargetLevel>
   </component>
   <component name="HaskellBuildOptions">
     <ghcPath>/usr/local/bin/ghc</ghcPath>

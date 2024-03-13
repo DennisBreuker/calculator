@@ -1,8 +1,8 @@
-package calculator;
+package nl.han.aim.asd.calculator;
 
-import expressions.Divide;
-import expressions.Expression;
-import parser.ExpressionsReader;
+import nl.han.aim.asd.expressions.Divide;
+import nl.han.aim.asd.expressions.Expression;
+import nl.han.aim.asd.parser.ExpressionsReader;
 
 public class Checker {
     private Expression expression;
