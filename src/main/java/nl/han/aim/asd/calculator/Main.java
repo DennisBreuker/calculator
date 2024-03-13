@@ -33,6 +33,9 @@ public class Main {
         ExpressionReader reader = new ExpressionReader(); // Alleen deze maak ik zelf
         walker.walk(reader, tree); // En deze krijg ik weer cadeau
 
+        Checker checker = new Checker(reader);
+        checker.check();
+
         System.out.println(expressionString + " = "
                 + new Evaluator().evaluate(reader.getTopExpression()));
 
