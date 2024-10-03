@@ -19,11 +19,6 @@ public class Number extends Expression {
     }
 
     @Override
-    public double evaluate() {
-        return number;
-    }
-
-    @Override
     public String toString() {
         return Integer.toString(number);
     }

@@ -22,6 +22,4 @@ public abstract class Expression {
     public void setRight(Expression right) {
         this.right = right;
     }
-
-    public abstract double evaluate();
 }
