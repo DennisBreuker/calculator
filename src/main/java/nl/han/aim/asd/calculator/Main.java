@@ -34,8 +34,14 @@ public class Main {
         walker.walk(reader, tree); // En deze krijg ik weer cadeau
 
         // Controleer op fouten
-        Checker checker = new Checker(reader);
-        checker.check();
+        try {
+            Checker checker = new Checker(reader);
+            checker.check();
+            System.out.println("Checking ok");
+        } catch (CheckerDivide13Exception exception) {
+            System.out.println("Fout bij checking: " + exception.getMessage());
+            return;
+        }
 
         // Druk de AST af
         System.out.println("Input: " + expressionString);
