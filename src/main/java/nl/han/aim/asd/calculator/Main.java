@@ -33,16 +33,6 @@ public class Main {
         ExpressionReader reader = new ExpressionReader(); // Alleen deze maak ik zelf
         walker.walk(reader, tree); // En deze krijg ik weer cadeau
 
-        // Controleer op fouten
-        try {
-            Checker checker = new Checker(reader);
-            checker.check();
-            System.out.println("Checking ok");
-        } catch (CheckerDivide13Exception exception) {
-            System.out.println("Fout bij checking: " + exception.getMessage());
-            return;
-        }
-
         // Druk de AST af
         System.out.println("Input: " + expressionString);
         System.out.println("AST: " + reader.getTopExpression());
