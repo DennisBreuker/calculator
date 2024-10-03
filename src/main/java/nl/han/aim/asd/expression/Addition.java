@@ -8,4 +8,9 @@ public class Addition extends Expression{
     public double evaluate() {
         return left.evaluate() + right.evaluate();
     }
+
+    @Override
+    public String toString() {
+        return "(" + left + " + " + right + ")";
+    }
 }

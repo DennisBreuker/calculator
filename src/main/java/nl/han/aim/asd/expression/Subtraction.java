@@ -8,4 +8,8 @@ public class Subtraction extends Expression {
     public double evaluate() {
         return left.evaluate() - right.evaluate();
     }
+
+    public String toString() {
+        return "(" + left + " - " + right + ")";
+    }
 }

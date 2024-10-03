@@ -33,10 +33,16 @@ public class Main {
         ExpressionReader reader = new ExpressionReader(); // Alleen deze maak ik zelf
         walker.walk(reader, tree); // En deze krijg ik weer cadeau
 
+        // Controleer op fouten
         Checker checker = new Checker(reader);
         checker.check();
 
-        System.out.println(expressionString + " = "
+        // Druk de AST af
+        System.out.println("Input: " + expressionString);
+        System.out.println("AST: " + reader.getTopExpression());
+
+        // Evalueer de expressie
+        System.out.println("Evaluatie: " + expressionString + " = "
                 + new Evaluator().evaluate(reader.getTopExpression()));
 
     }
