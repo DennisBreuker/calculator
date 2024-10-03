@@ -36,5 +36,10 @@ public class Main {
         // Druk de AST af
         System.out.println("Input: " + expressionString);
 //        System.out.println("AST: " + reader.getTopExpression());
+
+        // Evalueer de expressie
+//        System.out.println("Evaluatie: " + expressionString + " = "
+//                + new Evaluator().evaluate(reader.getTopExpression()));
+
     }
 }
